@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="ISO 8859-1">
+    <title>Selectores formulario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h3>Registros</h3>
+        </div>
+        <div class="row">
+            <form class="col-12">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputNombre">Nombre</label>
+                        <input type="text" class="form-control" id="inputNombre" placeholder="Apellidos">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputApellidos">Apellidos</label>
+                        <input type="text" class="form-control" id="inputApellidos" placeholder="Apellidos">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputUniversidad">Universidad</label>
+                    <input type="text" class="form-control" id="inputUniversidad" placeholder="¿Donde estudiaste?">
+                </div>
+                <div class="form-group">
+                    <label for="inputMateriaFavorita">Materia Favorita</label>
+                    <input type="text" class="form-control" id="inputMateriaFavorita" placeholder="?">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCiudad">Ciudad</label>
+                        <input type="text" class="form-control" id="inputCiudad">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputEstado">Estado</label>
+                        <select id="inputEstado" class="form-control">
+                      <option selected>Selecciona...</option>
+                      <option value="QROO">Quintana Roo</option>
+                      <option value="YN">Yucatan</option>
+                      <option value="VZ">Veracruz</option>
+                    </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputCodigoPostal">Código Postal</label>
+                        <input type="text" class="form-control" id="inputCodigoPostal">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                      De acuerdo
+                    </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>

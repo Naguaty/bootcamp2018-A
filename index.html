@@ -1,0 +1,134 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<div class="container-fluid">
+    <form class="hide" style="display: none;">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="">Nombre*</label>
+                <input type="text" class="form-control" id="">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="">Apellidos*</label>
+                <input type="text" class="form-control" id="">
+            </div>
+            <div class="form-group col-md-12">
+                <label for="">Correo</label>
+                <input type="email" class="form-control" id="" placeholder="Escribe un correo valido">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="">Teléfono</label>
+                <input type="tel" class="form-control" id="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="">Universidad*</label>
+                <input type="text" class="form-control" id="">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="">Edad</label>
+                <input type="text" class="form-control" id="">
+            </div>
+            <div class="form-group col-md-12">
+                <label for="">Intereses</label>
+                <div class="form-check">
+                    <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              FrontEnd
+            </label>
+                    <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              BackEnd
+            </label>
+                    <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              Node JS
+            </label>
+                    <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              Git
+            </label>
+                    <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              Amazon
+            </label>
+                    <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              Otro
+            </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </form>
+
+
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Universidad</th>
+            </tr>
+        </thead>
+        <tbody id="contenidoTabla">
+
+        </tbody>
+    </table>
+</div>
+
+
+<script id="miTemplate" type="text/x-handlebars-template">
+    {{#each this}}
+    <tr>
+        <th scope="row">{{@index}}</th>
+        <td><strong>{{nombre}} {{apellido}}</strong></td>
+        <td class="text-center">{{edad}}</td>
+        <td>{{universidad}}</td>
+    </tr>
+    {{/each}}
+</script>
+
+<script type="text/javascript" src="handlebars.js"></script>
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    var generaTabla = function() {
+
+        var $contenidoTabla = $('#contenidoTabla');
+        $contenidoTabla.html('<tr><td colspan="4"><i class="fa fa-spin fa-spinner"></i> Cargando....</td></tr>');
+
+        setTimeout(function() {
+
+            var alumnos = [];
+            $.ajax({
+                async: true,
+                cache: false,
+                type: 'GET',
+                dataType: 'json',
+                url: 'http://localhost:8080/alumnos.json'
+            }).done(function(res) {
+                alumnos = res;
+                var source = document.getElementById("miTemplate").innerHTML,
+                    template = Handlebars.compile(source),
+                    compiladoHtml = template(alumnos);
+
+                document.getElementById("contenidoTabla").innerHTML = compiladoHtml;
+            }).fail(function() {
+                alert('hubo un error');
+                // Que hago si falla la petici�n
+            });
+        }, 3000);
+
+
+
+
+
+
+
+
+    };
+
+    generaTabla();
+</script>

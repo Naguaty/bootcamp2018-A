@@ -15,7 +15,11 @@ var getPeliculas = function() {
     });
 }
 
+getDirectores = function() {
+    var tmpDirectores = $('#tmpDirectores').html();
+    $('#contenedor').html(tmpDirectores);
+}
 
 $(function() {
-    getPeliculas();
+    _rutas();
 });

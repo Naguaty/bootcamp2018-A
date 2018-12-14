@@ -4,7 +4,7 @@
   <meta charset="ISO 8859-1">
   <title>Selectores</title>
 
-  <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
 
 </head>
 <body>
@@ -16,16 +16,37 @@
     <li class="b">Enviar correos del trabajo</li>
   </ul>
 
-  <p>Párrafo 1</p>
-  <p>Párrafo 2</p>
+  <p >Párrafo 1</p>
+  <pclass="b">Párrafo 2</p>
   <p>Párrafo 3</p>
-  <p>Párrafo 4</p>
+  <p class="b">Párrafo 4</p>
   <p>Párrafo 5</p>
 
 </body>
 
 <script type="text/javascript">
-  var selecionp = $('p')
-  console.log('estas son las p',selecionp);
+  var $p = $('p');
+  console.log('$p',$p,'\n\n');
+
+  var $lista = $('#lista');
+  console.log('#lista\n',$lista,'\n\n');
+
+  var $b = $('ul .b');
+  console.log('.b\n',$b,'\n\n');
+
+  var $b = $('p.b, li.b');
+  console.log('.b\n',$b,'\n\n');
+
+  var $p1 = $('p:first');
+  console.log('primera p\n',$p1,'\n\n');
+
+  var $pares = $('p:even');
+  console.log('$pares\n',$pares,'\n\n');
+
+  var $a1 = $('.a:first');
+  console.log('primera a\n',$a1,'\n\n');
+
+  var $bp = $('.b:even');
+  console.log('b pares\n',$bp,'\n\n');
 </script>
 </html>

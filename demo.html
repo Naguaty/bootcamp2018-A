@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Handlebars</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="handlebars.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<div id="resultado"></div>
+<body>
+  <script id="template" type="text/x-handlebars-template">
+    <div class="container mt-5">
+      {{#each this}}
+      <div class="row">
+        <h3 class="col-12">{{titulo}}</h3>
+        <div class="col-12 alert alert-{{style}}" role="alert">
+            {{descripcion}}
+        </div>
+        {{#if correcto}}
+          <div class="col-12">
+            <span class="badge badge-success">Es correcto</span>
+          </div>
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+  </script>
+
+  <script>
+      let template = document.getElementById('template').innerHTML;
+      let fnTemplate = Handlebars.compile(template);
+
+      let info = [{
+        titulo: 'Hola chicos 1',
+        descripcion:'Sigan aprendiendo lo que hoy les muestre aqui',
+        style:'primary',
+        correcto: 0
+      },{
+        titulo: 'Hola chicos 2',
+        descripcion:'Sigan aprendiendo lo que hoy les muestre aqui',
+        style:'dark'
+      },{
+        titulo: 'Hola chicos 3',
+        descripcion:'Sigan aprendiendo lo que hoy les muestre aqui',
+        style:'danger'
+      },{
+        titulo: 'Hola chicos 4',
+        descripcion:'Sigan aprendiendo lo que hoy les muestre aqui',
+        style:'warning'
+      }];
+      let html = fnTemplate(info);
+      document.getElementById('resultado').innerHTML = html;
+
+  </script>
+</body>
+
+</html>
